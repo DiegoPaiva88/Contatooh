@@ -1,0 +1,23 @@
+{
+  "name": "contatooh",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Diego Paiva <paivahenrique88@hotmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.3",
+    "angular-route": "^1.7.8",
+    "bootstrap": "^4.3.1"
+  }
+}
