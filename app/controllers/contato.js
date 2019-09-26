@@ -17,8 +17,9 @@ var contatos = [
 module.exports = function () {
 
     var controller = {};
+
     controller.listaContatos = function (req, res) {
-        res.json(contatos);
+        res.json(contatos);  // retorna os dados de contatos como json
     };
 
     controller.obtemContato = function (req, res) {
@@ -31,6 +32,15 @@ module.exports = function () {
         contato ?
             res.json(contato) :
             res.status(404).send('Contato não encontrado');
+    };
+
+    controller.removeContato = function (req, res) {
+        var idContato = req.params.id;
+
+        contatos = contatos.filter(function (contato) {
+            return contato._id != idContato;
+        });
+        res.send(204).end();
     };
 
     return controller;
