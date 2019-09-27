@@ -18,6 +18,8 @@ module.exports = function () {
 
     var controller = {};
 
+    var ID_CONTATO_INC = 3;
+
     controller.listaContatos = function (req, res) {
         res.json(contatos);  // retorna os dados de contatos como json
     };
@@ -43,5 +45,27 @@ module.exports = function () {
         res.send(204).end();
     };
 
+    controller.salvarContatos = function (req, res) {
+        var contato = req.body;
+        contato = contato._id ?
+            atualizaz(contato) :
+            adicionar(contato);
+        res.json(contato);
+    };
+    function adicionar(contatoNovo) {
+        contatoNovo._id = ++ID_CONTATO_INC;;
+        contatos.push(contatoNovo);
+        return contatoNovo;
+    }
+    function atualizaz(contatoAlterar) {
+        contatos = contatos.map(function (contato) {
+            if (contato._id == contatoAlterar._id) {
+                contato = contatoAlterar;
+
+            }
+            return contato;
+        });
+        return contatoAlterar;
+    }
     return controller;
 };

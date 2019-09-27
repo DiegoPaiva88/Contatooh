@@ -11,8 +11,8 @@ module.exports = function (app) {
     ///funcao route  nao duplica os indentificadores
 
     app.route('/contatos')
-        .get(controller.listaContatos);
-    //.post(controller.salvarContatos);
+        .get(controller.listaContatos)
+        .post(controller.salvarContatos);
 
     app.route('/contatos/:id')    /* curinga que vai receber o parametro ID para idenfificar o contato */
         .get(controller.obtemContato)
