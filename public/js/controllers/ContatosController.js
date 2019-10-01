@@ -1,5 +1,5 @@
 angular.module('contatooh').controller('ContatosController',
-    function ($scope, $resource) {
+    function ($scope, Contato) {
 
         $scope.contatos = [];
 
@@ -7,7 +7,7 @@ angular.module('contatooh').controller('ContatosController',
 
         $scope.mensagem = { texto: '' };
 
-        var Contato = $resource('/contatos/:id');
+        //var Contato = $resource('/contatos/:id');
 
         function buscarContatos() {
             Contato.query(function (contatos) {
